@@ -1,6 +1,8 @@
 const apn = require("apn");
 const sendNotification = (req, res) => {
+  const { title } = req.body;
   const { deviceId } = req.params;
+  console.log(title);
   var options = {
     token: {
       key: "src/AuthKey_B5682YFV8U.p8",
@@ -13,7 +15,7 @@ const sendNotification = (req, res) => {
   var apnProvider = new apn.Provider(options);
 
   let notification = new apn.Notification({
-    alert: "Hello, world!",
+    alert: title,
     sound: "chime.caf",
     mutableContent: 1,
     topic: "xobuya",
