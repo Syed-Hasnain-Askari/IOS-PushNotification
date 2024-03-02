@@ -1,6 +1,6 @@
 const apn = require("apn");
 const sendNotification = (req, res) => {
-  const { title } = req.body;
+  const { title, body } = req.body;
   const { deviceId } = req.params;
   console.log(title);
   var options = {
@@ -15,8 +15,8 @@ const sendNotification = (req, res) => {
   var apnProvider = new apn.Provider(options);
 
   let notification = new apn.Notification({
-    alert: title,
-    title: "Xobuya to Test12121",
+    alert: body,
+    title: title,
     sound: "chime.caf",
     mutableContent: 1,
     topic: "xobuya",
