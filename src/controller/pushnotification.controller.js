@@ -16,6 +16,7 @@ const sendNotification = (req, res) => {
 
   let notification = new apn.Notification({
     alert: title,
+    title: "Xobuya to Test12121",
     sound: "chime.caf",
     mutableContent: 1,
     topic: "xobuya",
